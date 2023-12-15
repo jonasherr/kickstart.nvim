@@ -12,17 +12,16 @@ map({ "n", "v", "i" }, "<C-s>", function()
 end, { silent = true, desc = "Save" })
 
 -- Open Commands
-map({ "n", "v", "i" }, "<leader>of", ":NERDTree<CR>", { silent = true, desc = "Open file" })
-map({ "n", "v", "i" }, "<leader>ob", ":Merginal<CR>", { silent = true, desc = "Open branches" })
-map({ "n", "v", "i" }, "<leader>og", ":G ", { silent = true, desc = "Open Git" })
-map({ "n", "v", "i" }, "<leader>os", ":Telescope npm scripts<CR>",
+map({ "n", "v" }, "<leader>of", ":NERDTree %<CR>", { silent = true, desc = "Open file" })
+map({ "n", "v" }, "<leader>ob", ":Merginal<CR>", { silent = true, desc = "Open branches" })
+map({ "n", "v" }, "<leader>og", ":G ", { silent = true, desc = "Open Git" })
+map({ "n", "v" }, "<leader>os", ":Telescope npm scripts<CR>",
 	{ silent = true, desc = "Open npm scripts, with C-x in horizontal split" })
-map({ "n", "v", "i" }, "<leader>op", ":Telescope projects<CR>", { silent = true, desc = "Open projects" })
-map({ "n", "v", "i" }, "<leader>ot", ":terminal ", { silent = true, desc = "Open terminal" })
-
--- Move lines
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+map({ "n", "v" }, "<leader>op", ":Telescope projects<CR>", { silent = true, desc = "Open projects" })
+map({ "n", "v" }, "<leader>ot", ":terminal ", { silent = true, desc = "Open terminal" })
+map({ "n", "v" }, "<leader>ou", ":UndotreeToggle<CR>", { silent = true, desc = "Open Undotree" })
+map({ "n", "v" }, "<leader>od", ":lua require('dbee').open()<CR>", { silent = true, desc = "Open dbee" })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- Move lin vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 
 -- Keeps cursor centered
 vim.keymap.set("n", "J", "mzJ`z")
