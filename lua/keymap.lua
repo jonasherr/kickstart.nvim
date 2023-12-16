@@ -12,7 +12,6 @@ map({ "n", "v", "i" }, "<C-s>", function()
 end, { silent = true, desc = "Save" })
 
 -- Open Commands
-map({ "n", "v" }, "<leader>of", ":NERDTree %<CR>", { silent = true, desc = "Open file" })
 map({ "n", "v" }, "<leader>ob", ":Merginal<CR>", { silent = true, desc = "Open branches" })
 map({ "n", "v" }, "<leader>og", ":G ", { silent = true, desc = "Open Git" })
 map({ "n", "v" }, "<leader>ot", ":terminal ", { silent = true, desc = "Open terminal" })
@@ -54,3 +53,11 @@ vim.keymap.set('n', 'gE', vim.diagnostic.goto_prev, { desc = 'Go to previous dia
 vim.keymap.set('n', 'ge', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+
+-- new file
+map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })

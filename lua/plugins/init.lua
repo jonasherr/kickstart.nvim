@@ -108,9 +108,8 @@ return {
 		'lukas-reineke/indent-blankline.nvim',
 		-- Enable `lukas-reineke/indent-blankline.nvim`
 		-- See `:help indent_blankline.txt`
+		main = "ibl",
 		opts = {
-			char = '┊',
-			show_trailing_blankline_indent = false,
 		},
 	},
 
@@ -148,7 +147,12 @@ return {
 	'idanarye/vim-merginal',
 	'elianiva/telescope-npm.nvim',
 	'nvim-tree/nvim-web-devicons',
-	'preservim/nerdtree',
+	{
+		'preservim/nerdtree',
+		keys = {
+			{ "<leader>of", ":NERDTree %<CR>", silent = true, desc = 'Open file', mode = { "n", "v" } }
+		}
+	},
 	{
 		'ahmedkhalf/project.nvim',
 		config = function()
