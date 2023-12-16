@@ -15,9 +15,6 @@ end, { silent = true, desc = "Save" })
 map({ "n", "v" }, "<leader>of", ":NERDTree %<CR>", { silent = true, desc = "Open file" })
 map({ "n", "v" }, "<leader>ob", ":Merginal<CR>", { silent = true, desc = "Open branches" })
 map({ "n", "v" }, "<leader>og", ":G ", { silent = true, desc = "Open Git" })
-map({ "n", "v" }, "<leader>os", ":Telescope npm scripts<CR>",
-	{ silent = true, desc = "Open npm scripts, with C-x in horizontal split" })
-map({ "n", "v" }, "<leader>op", ":Telescope projects<CR>", { silent = true, desc = "Open projects" })
 map({ "n", "v" }, "<leader>ot", ":terminal ", { silent = true, desc = "Open terminal" })
 map({ "n", "v" }, "<leader>ou", ":UndotreeToggle<CR>", { silent = true, desc = "Open Undotree" })
 map({ "n", "v" }, "<leader>od", ":lua require('dbee').open()<CR>", { silent = true, desc = "Open dbee" })
@@ -40,3 +37,20 @@ vim.keymap.set("n", "<A-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 -- replaces everywhere that is selected
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- [[ Basic Keymaps ]]
+
+-- Keymaps for better default experience
+-- See `:help vim.keymap.set()`
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+
+-- Remap for dealing with word wrap
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+
+-- Diagnostic keymaps
+vim.keymap.set('n', 'gE', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
+vim.keymap.set('n', 'ge', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
