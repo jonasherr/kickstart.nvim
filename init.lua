@@ -25,7 +25,7 @@ require('lazy').setup({
   -- NOTE: The import below automatically adds your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  { import = 'custom.plugins' },
+  { import = 'plugins' },
 }, {})
 
-require('custom.keymap')
+require('keymap')
