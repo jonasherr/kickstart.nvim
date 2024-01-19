@@ -45,11 +45,15 @@ return {
 				top_p = 1,
 				n = 1,
 			},
+			actions_paths = { "~/.config/nvim/lua/plugins/chatgpt-actions.json" }
 		})
 	end,
 	dependencies = {
 		"MunifTanjim/nui.nvim",
 		"nvim-lua/plenary.nvim",
 		"nvim-telescope/telescope.nvim"
-	}
+	},
+	keys = {
+		{ "<leader>oc", ":ChatGPT<cr>", desc = "Open ChatGPT", mode = "n" },
+	},
 }
