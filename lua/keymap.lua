@@ -14,7 +14,7 @@ end, { silent = true, desc = "Save" })
 -- Open Commands
 map({ "n", "v" }, "<leader>ob", ":Merginal<CR>", { silent = true, desc = "Open branches" })
 map({ "n", "v" }, "<leader>og", ":G ", { silent = true, desc = "Open Git" })
-map({ "n", "v" }, "<leader>ot", ":terminal ", { silent = true, desc = "Open terminal" })
+--map({ "n", "v" }, "<leader>ot", ":terminal ", { silent = true, desc = "Open terminal" })
 map({ "n", "v" }, "<leader>ou", ":UndotreeToggle<CR>", { silent = true, desc = "Open Undotree" })
 map({ "n", "v" }, "<leader>od", ":lua require('dbee').open()<CR>", { silent = true, desc = "Open dbee" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- Move lin vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -61,3 +61,8 @@ map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 
 -- new file
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
+
+-- create new file at /Users/jonas/Library/Mobile Documents/iCloud~md~obsidian/Documents/Bear/inbox
+map("n", "<leader>ci",
+	"<cmd>edit ~/Library/Mobile\\ Documents/iCloud\\~md\\~obsidian/Documents/Bear/inbox/newnote.md<cr>",
+	{ desc = "New File in Bear Inbox" })
