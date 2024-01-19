@@ -37,6 +37,7 @@ return {
   keys = {
     { '<C-f>',           ":Telescope live_grep<cr>",                                                   desc = '[S]earch by [G]rep',                   mode = 'n', },
     { '<leader><space>', ":Telescope git_files<cr>",                                                   desc = 'Search [G]it [F]iles',                 mode = "n" },
+    { '<leader>fb',      ":Telescope buffers<cr>",                                                     desc = 'Search Buffers',                       mode = "n" },
     { '<leader>sf',      ":Telescope live_grep<cr>",                                                   desc = '[S]earch [F]iles',                     mode = "n" },
     { '<leader>sh',      ":Telescope help_tags<cr>",                                                   desc = '[S]earch [H]elp',                      mode = "n" },
     { '<leader>sw',      ":Telescope grep_string<cr>",                                                 desc = '[S]earch current [W]ord',              mode = "n" },
