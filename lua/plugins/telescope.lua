@@ -2,6 +2,7 @@ return {
   'nvim-telescope/telescope.nvim',
   config = function()
     require('telescope').setup {
+      event = 'VimEnter',
       defaults = {
         mappings = {
           i = {
@@ -21,6 +22,8 @@ return {
       }
     }
 
+
+
     -- Enable telescope fzf native, if installed
     require('telescope').load_extension('fzf')
 
@@ -35,19 +38,27 @@ return {
     }
   },
   keys = {
-    { '<C-f>',           ":Telescope live_grep<cr>",                                                   desc = '[S]earch by [G]rep',                   mode = 'n', },
-    { '<leader><space>', ":Telescope git_files<cr>",                                                   desc = 'Search [G]it [F]iles',                 mode = "n" },
-    { '<leader>fb',      ":Telescope buffers<cr>",                                                     desc = 'Search Buffers',                       mode = "n" },
-    { '<leader>sf',      ":Telescope live_grep<cr>",                                                   desc = '[S]earch [F]iles',                     mode = "n" },
-    { '<leader>sh',      ":Telescope help_tags<cr>",                                                   desc = '[S]earch [H]elp',                      mode = "n" },
-    { '<leader>sw',      ":Telescope grep_string<cr>",                                                 desc = '[S]earch current [W]ord',              mode = "n" },
-    { '<leader>sd',      ":Telescope diagnostics<cr>",                                                 desc = '[S]earch [D]iagnostics',               mode = "n" },
-    { "<leader>?",       ":Telescope oldfiles<cr>",                                                    desc = "[?] Find recently opened files",       mode = "n" },
-    { '<leader>/',       ":Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<cr>", desc = '[/] Fuzzily search in current buffer', mode = 'n' },
-    { 'gr',              ":Telescope lsp_references<cr>",                                              desc = '[G]oto [R]eferences' },
-    { '<leader>ds',      ":Telescope lsp_document_symbols<cr>",                                        desc = '[D]ocument [S]ymbols' },
-    { '<leader>ws',      ":Telescope lsp_dynamic_workspace_symbols<cr>",                               desc = '[W]orkspace [S]ymbols' },
-    { "<leader>os",      ":Telescope npm scripts<cr>",                                                 silent = true,                                 desc = "Open npm scripts, with C-x in horizontal split", mode = { "n", "v" } },
-    { "<leader>op",      ":Telescope projects<CR>",                                                    silent = true,                                 desc = "Open projects",                                  mode = { "n", "v" } }
+    { '<C-f>',           ":Telescope live_grep<cr>", desc = '[S]earch by [G]rep',   mode = 'n', },
+    { '<leader><space>', ":Telescope git_files<cr>", desc = 'Search [G]it [F]iles', mode = "n" },
+    { '<leader>fb',      ":Telescope buffers<cr>",   desc = 'Search Buffers',       mode = "n" },
+    {
+      '<leader>sn',
+      function()
+        local builtin = require('telescope.builtin')
+        builtin.find_files { cwd = vim.fn.stdpath 'config' }
+      end,
+      '[S]earch [N]eovim files',
+      mode = "n"
+    },
+    { '<leader>sh', ":Telescope help_tags<cr>",                                                   desc = '[S]earch [H]elp',                      mode = "n" },
+    { '<leader>sw', ":Telescope grep_string<cr>",                                                 desc = '[S]earch current [W]ord',              mode = "n" },
+    { '<leader>sd', ":Telescope diagnostics<cr>",                                                 desc = '[S]earch [D]iagnostics',               mode = "n" },
+    { "<leader>?",  ":Telescope oldfiles<cr>",                                                    desc = "[?] Find recently opened files",       mode = "n" },
+    { '<leader>/',  ":Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case<cr>", desc = '[/] Fuzzily search in current buffer', mode = 'n' },
+    { 'gr',         ":Telescope lsp_references<cr>",                                              desc = '[G]oto [R]eferences' },
+    { '<leader>ds', ":Telescope lsp_document_symbols<cr>",                                        desc = '[D]ocument [S]ymbols' },
+    { '<leader>ws', ":Telescope lsp_dynamic_workspace_symbols<cr>",                               desc = '[W]orkspace [S]ymbols' },
+    { "<leader>os", ":Telescope npm scripts<cr>",                                                 silent = true,                                 desc = "Open npm scripts, with C-x in horizontal split", mode = { "n", "v" } },
+    { "<leader>op", ":Telescope projects<CR>",                                                    silent = true,                                 desc = "Open projects",                                  mode = { "n", "v" } }
   }
 }

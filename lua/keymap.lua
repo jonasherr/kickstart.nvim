@@ -7,7 +7,6 @@ local map = vim.keymap.set
 -- for more infos write :help key-notation
 
 map({ "n", "v", "i" }, "<C-s>", function()
-	vim.lsp.buf.format()
 	vim.api.nvim_command('write')
 end, { silent = true, desc = "Save" })
 
@@ -66,3 +65,8 @@ map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 map("n", "<leader>ci",
 	"<cmd>edit ~/Library/Mobile\\ Documents/iCloud\\~md\\~obsidian/Documents/Bear/inbox/newnote.md<cr>",
 	{ desc = "New File in Bear Inbox" })
+
+map('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
