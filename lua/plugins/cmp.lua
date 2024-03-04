@@ -1,5 +1,6 @@
 return {
 	"hrsh7th/nvim-cmp",
+	event = 'InsertEnter',
 	opts = function(_)
 		local cmp = require 'cmp'
 		local luasnip = require 'luasnip'
